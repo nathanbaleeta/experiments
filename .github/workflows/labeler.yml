@@ -1,10 +1,11 @@
+# https://github.com/andymckay/labeler
 name: issue-automation
 
 on:
   issues:
     types: [opened]
   pull_request:
-    types: [reopened]
+    types: [reopened, opened]
   project_card:
     types: [moved]
 
@@ -12,8 +13,8 @@ jobs:
   automate-issues-labels:
     runs-on: ubuntu-latest
     steps:
-      - name: initial labeling
+      - name: Initial labeling
         uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage, bug"
-          remove-labels: "in progress"
+          
