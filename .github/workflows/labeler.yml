@@ -16,5 +16,5 @@ jobs:
       - name: Initial labeling
         uses: andymckay/labeler@master
         with:
-          add-labels: "needs-triage, bug"
+          add-labels: "needs-triage"
           
