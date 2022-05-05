@@ -1,22 +1,15 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: Add Label
 
-name: Label pull requests
 on:
-  pull_requests:
-    types:
-      - reopened
-      - opened
+  issues:
+    types: opened
+
 jobs:
-  label_pull_requests:
+  add_label:
     runs-on: ubuntu-latest
-    permissions:
-      pull_requests: write
     steps:
-      - name: Label pull requests
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-add-labels@v1
+        if: ${{ startsWith(github.event.comment.body, '/add-labels') }}
         with:
-          add-labels: "triage"
-          repo-token: ${{ secrets.PROJECT_TOKEN }}
+          labels: bug
