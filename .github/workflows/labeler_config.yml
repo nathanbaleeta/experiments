@@ -1,0 +1,8 @@
+version: 1
+labels:
+  - location: body
+    keywords:
+      - "new nominee"
+    labels:
+      - triage
+      - nomination
