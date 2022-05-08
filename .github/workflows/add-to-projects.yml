@@ -16,7 +16,7 @@ jobs:
       - uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
-          github-token: ${{ secrets.PROJECT_TOKEN }}
+          github-token: ${{ secrets.ADD_TO_PROJECTS }}
           labeled: needs-triage
       
 
