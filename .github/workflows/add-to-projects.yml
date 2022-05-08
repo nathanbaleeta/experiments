@@ -21,6 +21,7 @@ jobs:
 
   add-to-project:
     name: Add PR to Projects
+    needs: automate-PR-labels
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@main
