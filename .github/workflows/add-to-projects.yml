@@ -28,7 +28,7 @@ jobs:
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECTS }}
-          labeled: "needs-triage"
+          labeled: needs-triage
           
 
 
