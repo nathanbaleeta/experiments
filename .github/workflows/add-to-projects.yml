@@ -9,7 +9,15 @@ on:
     types: [reopened, opened]
 
 jobs:
-  add-to-project:
+  automate-PR-labeling:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Initial labeling
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "needs-triage"
+
+  add-to-projects:
     name: Provision PRs to Projects
     runs-on: ubuntu-latest
     steps:
