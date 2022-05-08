@@ -2,7 +2,7 @@
 # Note that this is for GitHub projects (beta), not the original GitHub projects.
 # https://github.com/marketplace/actions/add-to-github-projects-beta
 
-name: Add PRs to Projects Beta
+name: Provision PRs to Projects Beta
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   add-to-project:
-    name: Add PRs to projects
+    name: Provision PRs to Projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@main
