@@ -3,7 +3,7 @@
 # separate terms of service, privacy policy, and support documentation.
 # https://github.com/andymckay/labeler
 
-name: Label Pull Requests
+name: Pull Request Labeling
 
 on:
   pull_request:

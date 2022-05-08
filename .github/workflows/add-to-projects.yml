@@ -1,0 +1,23 @@
+name: Add PRs to Projects Beta
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  add-to-project:
+    name: Add PRs to projects
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/users/nathanbaleeta/projects/1
+          github-token: ${{ secrets.PROJECT_TOKEN }}
+          labeled: needs-triage
+      
+
+
+      
+
+          
