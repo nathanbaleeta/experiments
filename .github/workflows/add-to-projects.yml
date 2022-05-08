@@ -1,3 +1,7 @@
+# This action automatically adds the current issue or pull request to a GitHub project. 
+# Note that this is for GitHub projects (beta), not the original GitHub projects.
+# https://github.com/marketplace/actions/add-to-github-projects-beta
+
 name: Add PRs to Projects Beta
 
 on:
@@ -18,6 +22,6 @@ jobs:
       
 
 
-      
+
 
           
