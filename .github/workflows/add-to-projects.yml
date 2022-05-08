@@ -12,13 +12,13 @@ jobs:
   automate-PR-labeling:
     runs-on: ubuntu-latest
     steps:
-      - name: Initial labeling
+      - name: Label PR
         uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
 
   add-to-projects:
-    name: Provision PRs to Projects
+    name: Add PRs to Projects
     runs-on: ubuntu-latest
     steps:
       - uses: actions/add-to-project@main
