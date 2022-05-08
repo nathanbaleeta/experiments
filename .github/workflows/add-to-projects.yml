@@ -9,25 +9,20 @@ on:
     types: [reopened, opened]
 
 jobs:
-  automate-PR-labeling:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Label PR
-        uses: andymckay/labeler@master
+      - name: Intial Labeling
+      - uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
-
-  add-to-projects:
-    name: Add PRs to Projects
-    runs-on: ubuntu-latest
-    steps:
+      - name: Add PR to Projects
       - uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECTS }}
           labeled: needs-triage
-      
-
 
 
 
