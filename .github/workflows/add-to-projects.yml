@@ -8,8 +8,6 @@ on:
   pull_request:
     types: [reopened, opened]
 
-
-
 jobs:
   automate-PR-labels:
     name: Initial labeling
@@ -18,6 +16,18 @@ jobs:
       - uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
+
+  add-to-project:
+    name: Add PR to Projects
+    needs: automate-PR-labels
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          project-url: https://github.com/users/nathanbaleeta/projects/1
+          github-token: ${{ secrets.ADD_TO_PROJECTS }}
+          labeled: needs-triage
+        
 
 
 
