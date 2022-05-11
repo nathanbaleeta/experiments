@@ -23,8 +23,6 @@ jobs:
         uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
-        outputs:
-          output1: ${{ steps.step1.outputs }}
       - name: Add PR to Projects
         if: ${{ github.event.label.name == 'needs-triage' }}
         uses: actions/add-to-project@main
