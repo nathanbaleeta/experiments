@@ -28,7 +28,8 @@ jobs:
   add-to-projects:
     runs-on: ubuntu-latest
     needs: add_labels
-    if: ${{ github.event.action == 'labeled' && github.event.label.name == 'needs-triage' }}
+    if: ${{ github.event.pull_request.number }}
+    #if: ${{ github.event.action == 'labeled' && github.event.label.name == 'needs-triage' }}
     steps:
       - name: Add PR to Projects
         uses: actions/add-to-project@main
