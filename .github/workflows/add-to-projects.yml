@@ -12,12 +12,16 @@ on:
 
 jobs:
   automate-PR-labels:
-    name: Initial labeling
     runs-on: ubuntu-latest
     steps:
-      - uses: andymckay/labeler@master
+      - name: Initial labeling
+        uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
+      - name: Sleep for 5s
+        uses: juliangruber/sleep-action@v1
+        with:
+          time: 5s
 
   add-to-project:
     name: Add PR to Projects
