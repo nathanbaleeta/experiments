@@ -8,8 +8,6 @@ on:
   pull_request:
     types: [reopened, opened]
 
-
-
 jobs:
   automate-PR-labels:
     runs-on: ubuntu-latest
@@ -18,17 +16,18 @@ jobs:
         uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
-      - name: Sleep for 5s
-        uses: juliangruber/sleep-action@v1
-        with:
-          time: 5s
+      
 
   add-to-project:
-    name: Add PR to Projects
     needs: automate-PR-labels
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@main
+      - name: Sleep for 10s
+        uses: juliangruber/sleep-action@v1
+        with:
+          time: 10s
+      - name: Add PR to Projects
+        uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECTS }}
