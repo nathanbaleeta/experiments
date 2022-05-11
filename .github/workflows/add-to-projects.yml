@@ -5,6 +5,10 @@
 # Automatically adds labels to pull requests
 # https://github.com/andymckay/labeler
 
+# https://stackoverflow.com/questions/62325286/run-github-actions-when-pull-requests-have-a-specific-label
+
+# https://api.github.com/repos/nathanbaleeta/experiments/labels/enhancement
+
 name: PRs Automatically added to Projects
 
 on:
@@ -12,15 +16,22 @@ on:
     types: [ reopened, opened, labeled ]
 
 jobs:
-  add-to-projects:
+  auto-pull-request-labeling:
     runs-on: ubuntu-latest
-
     steps:
       - name: Initial labeling
         uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
+        outputs:
+          output1: ${{ steps.step1.outputs }}
+      
+
+  add-to-projects:
+    runs-on: ubuntu-latest
+    steps:
       - name: Add PR to Projects
+        needs: auto-pull-request-labeling
         if: ${{ github.event.label.name == 'needs-triage' }}
         uses: actions/add-to-project@main
         with:
