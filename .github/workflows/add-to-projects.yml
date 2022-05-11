@@ -9,7 +9,7 @@ name: PRs Automatically added to Projects
 
 on:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, labeled]
 
 jobs:
   add-to-projects:
@@ -28,7 +28,8 @@ jobs:
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECTS }}
-          labeled: needs-triage
+          labeled: needs-triage, bug
+          label-operator: OR
 
 
 
