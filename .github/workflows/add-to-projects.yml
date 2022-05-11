@@ -16,16 +16,21 @@ on:
     types: [ reopened, opened, labeled ]
 
 jobs:
+  add_labels:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.action == 'reopened' }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: needs-triage
+
   add-to-projects:
     runs-on: ubuntu-latest
+    needs: add_labels
+    if: ${{ github.event.action == 'labeled' && github.event.label.name == 'needs-triage' }}
     steps:
-      - name: Initial labeling
-        if: ${{ github.event.action == 'reopened' }}
-        uses: andymckay/labeler@master
-        with:
-          add-labels: "needs-triage"
       - name: Add PR to Projects
-        if: ${{ github.event.action == 'labeled' && github.event.label.name == 'needs-triage' }}
         uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
