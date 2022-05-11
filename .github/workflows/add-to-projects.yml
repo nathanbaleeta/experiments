@@ -12,8 +12,11 @@
 name: Add PRs to Projects
 
 on:
+  pull_request:
+    types: [ reopened, opened ]
   schedule:
     - cron: "*/3 * * * *"
+
 
 jobs:
   add-to-projects:
