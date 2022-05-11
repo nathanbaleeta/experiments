@@ -2,12 +2,11 @@
 # Note that this is for GitHub projects (beta), not the original GitHub projects.
 # https://github.com/marketplace/actions/add-to-github-projects-beta
 
-name: Add PRs to Projects
+name: PRs Automatically added to Projects
 
 on:
   pull_request:
-    types:
-      - labeled
+    types: [opened, reopened]
 
 jobs:
   add-to-projects:
@@ -18,7 +17,7 @@ jobs:
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECTS }}
-          labeled: "needs-review"
+          labeled: needs-review
 
 
 
