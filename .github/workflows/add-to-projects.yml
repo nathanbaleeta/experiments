@@ -13,12 +13,11 @@ name: Add PRs to Projects
 
 on:
   schedule:
-    -cron: "*/5 * * * *"
+    - cron: "*/3 * * * *"
 
 jobs:
   add-to-projects:
     runs-on: ubuntu-latest
-    if: ${{ github.event.label.name == 'needs-triage' }}
     steps:
       - name: Add PR to Projects
         uses: actions/add-to-project@main
