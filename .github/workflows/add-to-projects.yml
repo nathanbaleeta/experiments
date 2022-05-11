@@ -13,7 +13,6 @@ on:
 
 jobs:
   add-to-projects:
-    if: ${{ github.event.label.name == 'needs-triage' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -22,6 +21,7 @@ jobs:
       #   with:
       #     add-labels: "needs-triage"
       - name: Add PR to Projects
+        if: ${{ github.event.label.name == 'needs-triage' }}
         uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
