@@ -1,3 +1,6 @@
+# Automatically adds labels to pull requests
+# https://github.com/andymckay/labeler
+
 name: Label PRs
 
 on:
