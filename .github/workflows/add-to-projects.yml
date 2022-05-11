@@ -24,7 +24,7 @@ jobs:
         with:
           add-labels: "needs-triage"
       - name: Add PR to Projects
-        if: ${{ && github.event.action == 'labeled' && github.event.label.name == 'needs-triage' }}
+        if: ${{ github.event.action == 'labeled' && github.event.label.name == 'needs-triage' }}
         uses: actions/add-to-project@main
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
