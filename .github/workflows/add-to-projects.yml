@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initial labeling
+        if: ${{ github.event.action == 'reopened' }}
         uses: andymckay/labeler@master
         with:
           add-labels: "needs-triage"
