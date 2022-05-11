@@ -12,12 +12,10 @@
 name: Add PRs to Projects
 
 on:
-  pull_request:
-    types: [ reopened, opened ]
+  workflow_dispatch:
   schedule:
-    - cron: "*/3 * * * *"
-
-
+    - cron: '*/3 * * * *'
+  
 jobs:
   add-to-projects:
     runs-on: ubuntu-latest
