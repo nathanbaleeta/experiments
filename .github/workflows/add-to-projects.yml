@@ -16,7 +16,7 @@ on:
     types: [ reopened, opened, labeled ]
 
 jobs:
-  auto-pull-request-labeling:
+  add-to-projects:
     runs-on: ubuntu-latest
     steps:
       - name: Initial labeling
@@ -25,13 +25,7 @@ jobs:
           add-labels: "needs-triage"
         outputs:
           output1: ${{ steps.step1.outputs }}
-      
-
-  add-to-projects:
-    runs-on: ubuntu-latest
-    steps:
       - name: Add PR to Projects
-        needs: auto-pull-request-labeling
         if: ${{ github.event.label.name == 'needs-triage' }}
         uses: actions/add-to-project@main
         with:
