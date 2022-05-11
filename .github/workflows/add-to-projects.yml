@@ -6,7 +6,7 @@ name: Provision PRs to Projects
 
 on:
   pull_request:
-    types: [reopened, opened]
+    types: [reopened, opened, labeled]
 
 jobs:
   automate-PR-labels:
