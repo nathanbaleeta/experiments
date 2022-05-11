@@ -6,7 +6,7 @@ name: Provision PRs to Projects
 
 on:
   pull_request:
-    types: [opened, labeled]
+    types: [opened, reopened, labeled]
 
 jobs:
   add-to-projects:
