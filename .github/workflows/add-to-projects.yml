@@ -22,10 +22,6 @@ jobs:
     needs: automate-PR-labels
     runs-on: ubuntu-latest
     steps:
-      - name: Sleep for 10s
-        uses: juliangruber/sleep-action@v1
-        with:
-          time: 10s
       - name: Add PR to Projects
         uses: actions/add-to-project@main
         with:
