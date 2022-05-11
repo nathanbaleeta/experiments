@@ -22,6 +22,7 @@ jobs:
     steps:
       - name: Add PR to Projects
         uses: actions/add-to-project@main
+        if: github.event.schedule == '*/3 * * * *'
         with:
           project-url: https://github.com/users/nathanbaleeta/projects/1
           github-token: ${{ secrets.ADD_TO_PROJECTS }}
