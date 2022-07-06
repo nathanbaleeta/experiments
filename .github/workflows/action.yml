@@ -1,5 +1,6 @@
+# https://github.com/actions/stale
+
 name: 'Close stale PRs'
-description: 'Close pull requests with no recent activity'
 on:
   schedule:
     - cron: '*/5 * * * *'
