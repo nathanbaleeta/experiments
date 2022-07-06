@@ -20,7 +20,7 @@ jobs:
     - uses: actions/stale@v5
       with:
         repo-token: ${{ secrets.ADD_TO_PROJECTS }}
-        stale-pr-message: 'This PR is stale because it has been open 1 days with no activity. Remove stale label or comment or this will be closed in 10 days.'
+        stale-pr-message: 'This PR is stale because it has been open 1 days with no activity. Remove inactive label or comment or this will be closed in 10 days.'
         stale-pr-label: 'Inactive'
         only-labels: 'Awaiting answers'
         days-before-pr-stale: 1
